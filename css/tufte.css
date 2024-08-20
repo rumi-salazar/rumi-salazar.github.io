@@ -484,3 +484,19 @@ label.margin-toggle:not(.sidenote-number) {
         width: 100%;
     }
 }
+
+.profile-picture {
+    width: 150px;  /* Adjust size as needed */
+    height: 150px;
+    border-radius: 50%;  /* This creates the circular crop */
+    object-fit: cover;  /* This ensures the image fills the circular area */
+    display: block;
+    margin-bottom: 1rem;
+  }
+  
+  /* Adjust the marginnote width for larger screens to accommodate the circular image */
+  @media (min-width: 760px) {
+    .marginnote {
+      width: 213px;
+    }
+  }
