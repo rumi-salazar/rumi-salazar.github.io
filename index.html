@@ -1,32 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rumi Salazar</title>
-    <link rel="stylesheet" href="css/tufte.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rumi Salazar</title>
+  <meta name="description" content="Rumi Salazar is a PhD student at the University of Melbourne studying singular learning theory and linear logic for AI alignment.">
+  <link rel="canonical" href="https://rumi-salazar.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Rumi Salazar">
+  <meta property="og:description" content="Rumi Salazar is a PhD student at the University of Melbourne studying singular learning theory and linear logic for AI alignment.">
+  <meta property="og:url" content="https://rumi-salazar.github.io/">
+  <meta property="og:image" content="https://rumi-salazar.github.io/img/me.jpg">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/theme.js"></script>
+
+  <!-- KaTeX renders mathematics. Write inline maths as \( ... \) and display maths as \[ ... \]. -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body);"></script>
 </head>
 <body>
-    <header>
-        <h1>Rumi Salazar</h1>
-    </header>
-    
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="writing.html">Writing</a>
-    </nav>
-    
-    <main>
-        <p>
-            <label for="profile-pic-toggle" class="margin-toggle">&#8853;</label>
-            <input type="checkbox" id="profile-pic-toggle" class="margin-toggle"/>
-            <span class="marginnote">
-                <img src="img/me.png" alt="Rumi Salazar" class="profile-picture" />
-            </span>
-            Welcome! I'm a PhD candidate at the University of Melbourne investigating foundational aspects of AI alignment
-            from the perspectives of singular learning theory and linear logic.
-            Here you can find information about me and my various writings.
-        </p>
-    </main>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container wrapper no-title">
+      <div class="nav-wrapper">
+        <nav class="site-nav" aria-label="Site">
+          <a href="index.html" aria-current="page">Home</a>
+          <a href="research.html">Research</a>
+          <a href="talks.html">Talks</a>
+        </nav>
+        <button class="theme-toggle" type="button" hidden aria-label="Switch theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 1.5v2.5M12 20v2.5M1.5 12H4M20 12h2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+
+    <section class="profile" aria-labelledby="name">
+      <div class="profile-text">
+        <h1 id="name">Rumi Salazar</h1>
+
+        <p>I'm a PhD student at the University of Melbourne studying <a href="https://www.cambridge.org/core/books/algebraic-geometry-and-statistical-learning-theory/9C8FD1BDC817E2FC79117C7F41544A3A">singular learning theory</a> and <a href="https://ems.press/books/standalone/101">linear logic</a> for <a href="https://en.wikipedia.org/wiki/AI_alignment">AI alignment</a>, supervised by <a href="https://therisingsea.org">Daniel Murfet</a> and <a href="https://researchers.ms.unimelb.edu.au/~nganter@unimelb/">Nora Ganter</a>. I've recently collaborated with <a href="https://timaeus.co/">Timaeus</a> (now <a href="https://resolution.org/">Resolution</a>), a research organisation aiming to make fundamental scientific progress on technical AI alignment.</p>
+
+        <p>Before my PhD I studied at UNSW Sydney, where I wrote an honours thesis on the relationship between symplectic reduction (a quotient in symplectic geometry) and the <a href="https://link.springer.com/book/9783540569633">GIT</a> quotient in algebraic geometry, supervised by <a href="https://web.maths.unsw.edu.au/~danielch/">Daniel Chan</a>. Prior to that, I investigated the question <em>can one hear the shape of a drum?</em> in a three-month research project supervised by <a href="https://en.wikipedia.org/wiki/Michael_Cowling">Michael Cowling</a>.</p>
+
+        Feel free to contact me by <a href="mailto:ruminawi.salazar@gmail.com">email</a> or <a href="https://www.linkedin.com/in/rumi-salazar-06a93b116">linkedin</a>.
+      </div>
+
+      <figure class="profile-photo">
+        <img src="img/me.jpg" alt="Portrait of Rumi Salazar" width="251" height="250">
+      </figure>
+    </section>
+
+    <section class="section" aria-labelledby="updates-h">
+      <h2 id="updates-h">Updates</h2>
+      <p><em>September 2026.</em> My new paper, <em><a href="https://arxiv.org/abs/2609.04661">Interpretability for Turing Machines</a></em>, with Billy Snikkers, Daniel Murfet and Will Troiani, is on the arXiv. We show that <a href="https://arxiv.org/abs/2605.07980">susceptibilities</a>, an interpretability technique developed for neural networks, can detect algorithmic structure in Turing machines. This work builds upon a long chain of prior work: <a href="https://www.cambridge.org/core/journals/mathematical-structures-in-computer-science/article/abs/encodings-of-turing-machines-in-linear-logic/9395157C85BAC3E3CC47BE42FCB9C2B2">Turing machines are encoded as proofs in linear logic</a>, then modelled in vector spaces, which is a semantics for <a href="https://www.cambridge.org/core/journals/mathematical-structures-in-computer-science/article/abs/cofree-coalgebras-and-differential-linear-logic/FDFA007DF709AE4600E43C08B25479EB">differential linear logic</a>. That gives <a href="https://arxiv.org/abs/1805.11813">derivatives of Turing machines</a> for which one can apply the tools of calculus. Singular learning theory then turns this into a <a href="https://arxiv.org/abs/2103.16080">geometry of program synthesis</a>, in which <a href="https://arxiv.org/abs/2504.08075">programs are singularities</a> of a real-valued function over a space of noisy Turing machines. This is the setting of our paper.</p>
+    </section>
+
+  </main>
+
 </body>
 </html>

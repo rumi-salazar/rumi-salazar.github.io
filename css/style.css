@@ -1,0 +1,221 @@
+@charset "UTF-8";
+
+/* ----------------------------------------------------------------------
+   rumi-salazar.github.io
+   Colours, fonts and the width of the text column are the CSS variables
+   in :root below. Each colour is written as light-dark(light, dark). The
+   page follows the system theme unless the button in the header has set
+   data-theme="light" or data-theme="dark" on <html> (see js/theme.js).
+   ---------------------------------------------------------------------- */
+
+/* ET Book, the typeface of Edward Tufte's books.
+   https://github.com/edwardtufte/et-book (MIT licence). */
+@font-face {
+  font-family: "et-book";
+  src: url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.woff") format("woff"),
+       url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "et-book";
+  src: url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.woff") format("woff"),
+       url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "et-book";
+  src: url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.woff") format("woff"),
+       url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light dark;
+  --paper: light-dark(#ffffff, #000000);         /* page background */
+  --paper-deep: light-dark(#f5f5f5, #141414);    /* code blocks and panels */
+  --ink: light-dark(#111111, #ededed);           /* body text */
+  --ink-soft: light-dark(#555555, #a3a3a3);      /* secondary text: authors, dates, captions */
+  --accent: light-dark(#2a7ae2, #6fa8ff);        /* links: the standard blue */
+  --accent-strong: light-dark(#1756a9, #a9c9ff);
+  --line: light-dark(#e2e2e2, #2b2b2b);          /* hairlines */
+  --serif: "et-book", "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --measure: 44rem;        /* width of the page column */
+  --prose: 38rem;          /* maximum width of a paragraph */
+}
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"]  { color-scheme: dark; }
+
+/* ---- Base ------------------------------------------------------------ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  font-size: 19px;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  line-height: 1.55;
+  text-rendering: optimizeLegibility;
+}
+
+[hidden] { display: none !important; }
+img { display: block; max-width: 100%; height: auto; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-strong); text-decoration: underline; text-underline-offset: 0.16em; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+h1, h2, h3, h4 { margin: 0; font-weight: 400; line-height: 1.15; text-wrap: balance; }
+p { margin: 0 0 1rem; max-width: var(--prose); }
+ul, ol { margin: 0 0 1rem; padding-left: 1.2rem; }
+li { margin-bottom: 0.35rem; }
+strong, b { font-weight: 700; }
+code, pre, kbd { font-family: var(--mono); font-size: 0.85em; }
+pre {
+  overflow-x: auto;
+  padding: 0.8rem 1rem;
+  background: var(--paper-deep);
+  border: 1px solid var(--line);
+  line-height: 1.45;
+}
+blockquote {
+  margin: 0 0 1rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--line);
+  color: var(--ink-soft);
+}
+hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
+table { border-collapse: collapse; }
+th, td { padding: 0.35rem 0.7rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.2rem 0; }
+
+.container { width: min(var(--measure), 100% - 2.5rem); margin-inline: auto; }
+main { padding-bottom: 3rem; }
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100%;
+  z-index: 10;
+  padding: 0.5rem 0.8rem;
+  background: var(--ink);
+  color: var(--paper);
+}
+.skip-link:focus { top: 1rem; }
+
+/* ---- Header: site title, navigation, theme toggle ------------------- */
+
+.site-header { border-bottom: 1px solid var(--line); }
+.site-header .wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem 2rem;
+  padding: 0.85rem 0 0.7rem;
+}
+.site-header .wrapper.no-title { justify-content: flex-end; }
+.site-title { color: var(--ink); text-decoration: none; font-weight: 700; font-size: 1.1rem; }
+.site-title:hover { color: var(--accent-strong); }
+.nav-wrapper { display: flex; align-items: center; gap: 1.4rem; }
+.site-nav { display: flex; flex-wrap: wrap; gap: 0.3rem 1.5rem; font-size: 0.95rem; }
+.site-nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  padding: 0.15rem 0;
+  border-bottom: 1px solid transparent;
+}
+.site-nav a:hover,
+.site-nav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--accent); }
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink-soft);
+  font: inherit;
+  cursor: pointer;
+}
+.theme-toggle:hover { color: var(--ink); border-color: var(--ink-soft); }
+.theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.theme-toggle svg { width: 1rem; height: 1rem; }
+.theme-toggle .icon-sun { display: none; }
+:root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+/* ---- Home page profile ----------------------------------------------- */
+
+.profile {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 11rem;
+  column-gap: 3rem;
+  row-gap: 1.5rem;
+  align-items: start;
+  padding: 2.75rem 0 1.5rem;
+}
+.profile h1 { font-size: 2.6rem; letter-spacing: -0.01em; margin-bottom: 1.2rem; }
+.profile-photo { margin: 0; padding-top: 0.5rem; }
+.profile-photo img { width: 100%; aspect-ratio: 1; object-fit: cover; border: 1px solid var(--line); border-radius: 50%; }
+.profile-photo figcaption { margin-top: 0.5rem; font-size: 0.85rem; color: var(--ink-soft); text-align: center; }
+.social-links { display: flex; flex-wrap: wrap; gap: 0.4rem 1.4rem; margin-top: 1.4rem; font-size: 0.95rem; }
+
+/* ---- Interior page header -------------------------------------------- */
+
+.page-header { padding: 2.5rem 0 0.6rem; }
+.page-header h1 { font-size: 2.2rem; margin-bottom: 0.6rem; }
+.page-header p { color: var(--ink-soft); }
+
+/* ---- Sections -------------------------------------------------------- */
+
+.section { padding: 1.4rem 0 1rem; }
+.section > h2, .section-header { margin-bottom: 1rem; }
+.section h2 { font-size: 1.6rem; }
+.section h3 { font-size: 1.15rem; font-style: italic; margin: 1.5rem 0 0.45rem; }
+.section h3:first-of-type { margin-top: 0.5rem; }
+.section-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.4rem 2rem;
+}
+.section-header a { font-size: 0.95rem; }
+.note { color: var(--ink-soft); font-size: 0.92rem; }
+
+/* ---- Small screens --------------------------------------------------- */
+
+@media (max-width: 640px) {
+  html { font-size: 17px; }
+  .profile { grid-template-columns: 1fr; padding-top: 1.75rem; }
+  .profile h1 { font-size: 2.2rem; }
+  .profile-photo { order: -1; width: 7.5rem; padding-top: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+@media print {
+  .site-nav, .skip-link, .theme-toggle { display: none; }
+  a { color: inherit; }
+}
