@@ -202,9 +202,39 @@ main { padding-bottom: 3rem; }
 .section-header a { font-size: 0.95rem; }
 .note { color: var(--ink-soft); font-size: 0.92rem; }
 
+/* ---- Seminar pages: event details and schedule ---------------------- */
+
+.event-details { list-style: none; padding-left: 0; margin: 1.4rem 0 0; }
+.event-details li { margin-bottom: 0.35rem; padding-left: 6.5rem; }
+.event-details .label { display: inline-block; width: 6.5rem; margin-left: -6.5rem; color: var(--ink-soft); }
+
+.schedule { list-style: none; padding-left: 0; margin: 0; }
+.schedule li {
+  display: grid;
+  grid-template-columns: 7rem minmax(0, 1fr) 10rem;
+  column-gap: 1.5rem;
+  align-items: baseline;
+  margin: 0;
+  padding: 0.55rem 0;
+}
+.schedule time { color: var(--ink-soft); font-size: 0.92rem; white-space: nowrap; }
+.schedule p { margin: 0; max-width: none; }
+.schedule .talk-title { font-style: italic; }
+.schedule .speaker { font-size: 0.95rem; line-height: 1.35; }
+.schedule .affiliation { display: block; color: var(--ink-soft); font-size: 0.82rem; }
+.schedule .interval .talk-title { grid-column: 2 / -1; font-style: normal; color: var(--ink-soft); }
+
+.references { list-style: none; padding-left: 0; counter-reset: ref; }
+.references li { position: relative; padding-left: 2.4rem; margin-bottom: 0.55rem; counter-increment: ref; }
+.references li::before { content: "[" counter(ref) "]"; position: absolute; left: 0; color: var(--ink-soft); }
+
 /* ---- Small screens --------------------------------------------------- */
 
 @media (max-width: 640px) {
+  .schedule li { grid-template-columns: 1fr; row-gap: 0.1rem; padding: 0.8rem 0; }
+  .schedule .interval .talk-title { grid-column: auto; }
+  .event-details li { padding-left: 0; }
+  .event-details .label { display: block; width: auto; margin-left: 0; }
   html { font-size: 17px; }
   .profile { grid-template-columns: 1fr; padding-top: 1.75rem; }
   .profile h1 { font-size: 2.2rem; }
