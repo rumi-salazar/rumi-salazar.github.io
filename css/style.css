@@ -228,6 +228,14 @@ main { padding-bottom: 3rem; }
 .references li { position: relative; padding-left: 2.4rem; margin-bottom: 0.55rem; counter-increment: ref; }
 .references li::before { content: "[" counter(ref) "]"; position: absolute; left: 0; color: var(--ink-soft); }
 
+/* ---- Teaching page: term label with a list of courses ---------------- */
+
+.section .role { margin: -0.5rem 0 1rem; font-style: italic; color: var(--ink-soft); }
+.teaching { list-style: none; padding-left: 0; }
+.teaching > li { margin-bottom: 0.8rem; }
+.teaching ul { margin: 0.2rem 0 0; list-style: disc; }
+.teaching ul li { margin-bottom: 0.15rem; }
+
 /* ---- Small screens --------------------------------------------------- */
 
 @media (max-width: 640px) {
